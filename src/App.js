@@ -4,6 +4,7 @@ import './App.css';
 import logo from './The-Wall-Street-Journal-Logo.png'
 //hey
 function App() {
+  const [getData, setData] = React.useState([]);
 
   const onChange = () => {
     fetch("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en", {
@@ -15,12 +16,14 @@ function App() {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        setData(data.marketSummaryResponse.result);
+        console.log(data.marketSummaryResponse.result);
       })
 
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       });
+
   }
 
   return (
@@ -30,7 +33,18 @@ function App() {
           <img src={logo} alt="Logo" className="center" />
         </div>
       </header>
-      <button onClick={onChange}>Access API</button>
+      <button onClick={onChange}>list of companies from API</button>
+      {
+        (getData.length > 0) && [
+          getData.map((item, index) => {
+            return (
+              <div className="list">
+                {item.fullExchangeName}
+              </div>
+            );
+          })
+        ]
+      }
     </div>
   );
 }

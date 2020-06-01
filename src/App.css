@@ -9,6 +9,26 @@
 
 }
 
+.list{
+  /* margin-top:10px; */
+  width: 100px;
+    /* height: 50px; */
+    /* below centers div */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+  margin-top:10px;
+  width: 100px;
+    height: 50px;
+    /* below centers div */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 @media screen and (min-width: 800px) and (max-width: 1600px) {
   .wrapper{
