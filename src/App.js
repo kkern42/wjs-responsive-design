@@ -7,7 +7,7 @@ function App() {
   const [getData, setData] = React.useState([]);
 
   const onChange = () => {
-    fetch('https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en', {
+    fetch(process.env.REACT_SITE, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
