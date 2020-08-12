@@ -7,11 +7,11 @@ function App() {
   const [getData, setData] = React.useState([]);
 
   const onChange = () => {
-    fetch(process.env.REACT_API_KEY, {
+    fetch('https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary?region=US&lang=en', {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-yahoo-finance-v1.p.rapidapi.com",
-        "x-rapidapi-key": "fb96d153d3msha8bb9a91c05b002p1291b0jsncb0b53d50014"
+        "x-rapidapi-key": process.env.REACT_API_KEY
       }
     })
       .then(response => response.json())
